@@ -1,12 +1,10 @@
-FROM node:18-alpine3.18
+FROM node:20-alpine
 RUN apk update
 RUN apk upgrade
-RUN apk add ffmpeg
 WORKDIR /app
-COPY ./*.json .
-COPY ./yarn.lock .
-RUN yarn install --production
+COPY package.json package-lock.json ./
+RUN npm install --production
 COPY . .
-RUN yarn build
-CMD ["yarn", "start"]
+RUN npm run build
+CMD ["npm", "run", "start"]
 EXPOSE 3005

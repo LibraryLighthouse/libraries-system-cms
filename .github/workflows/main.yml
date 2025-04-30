@@ -3,14 +3,14 @@ name: Build Docker Image
 on:
   push:
     branches:
-      - master  # Or your deployment branch
+      - master 
   pull_request:
     branches:
       - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout code

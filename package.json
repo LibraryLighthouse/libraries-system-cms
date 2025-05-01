@@ -22,14 +22,14 @@
     "better-sqlite3": "^11.9.1",
     "mysql2": "^3.14.1",
     "pg": "8.15.6",
-    "react": "^18.0.0",
+    "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.5.3",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^22",
-    "@types/react": "^18",
+    "@types/react": "^19",
     "@types/react-dom": "^19",
     "typescript": "^5"
   },

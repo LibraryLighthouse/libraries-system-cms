@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/your-image-name:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/lms-cms-strapi:latest .
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/your-image-name:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/lms-cms-strapi:latest

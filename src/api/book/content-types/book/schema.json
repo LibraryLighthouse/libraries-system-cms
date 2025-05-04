@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "singularName": "book",
+    "pluralName": "books",
+    "displayName": "Book",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "book_title": {
+      "type": "text",
+      "required": true
+    },
+    "book_cover": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "book_description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "ISBN": {
+      "type": "string",
+      "required": true
+    },
+    "page": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "date",
+      "required": true
+    },
+    "book_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book-category.book-category",
+      "mappedBy": "book"
+    },
+    "publishers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::publisher.publisher",
+      "mappedBy": "book"
+    },
+    "book_status": {
+      "type": "enumeration",
+      "enum": [
+        "available",
+        "unavailable"
+      ],
+      "required": false
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "Khmer",
+        "English",
+        "Thailand"
+      ]
+    }
+  }
+}

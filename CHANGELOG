@@ -1,0 +1,4 @@
+# Changelog
+Version 1.0.0
+- add content type [book, book-categories, publisher]
+- testing add data and get graphql

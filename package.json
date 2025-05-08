@@ -16,8 +16,9 @@
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^5.0.2",
+    "@strapi/plugin-graphql": "^5.12.7",
     "@strapi/plugin-users-permissions": "5.12.7",
-    "@strapi/strapi": "5.12.7",
+    "@strapi/strapi": "^5.12.7",
     "better-sqlite3": "^11.9.1",
     "mysql2": "^3.14.1",
     "pg": "8.15.6",

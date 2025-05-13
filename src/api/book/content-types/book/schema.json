@@ -71,6 +71,10 @@
         "English",
         "Thailand"
       ]
+    },
+    "time_reading": {
+      "type": "string",
+      "required": true
     }
   }
 }

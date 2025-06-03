@@ -6,16 +6,15 @@ services:
     container_name: postgres_db
     restart: always
     environment:
-      POSTGRES_USER: rootuser
-      POSTGRES_PASSWORD: rootpassword
+      POSTGRES_USER: pguser_dev
+      POSTGRES_PASSWORD: 2tZxHFizMpxll5
       POSTGRES_DB: pgdatabase
 
-    networks:
-      - lms_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
     ports:
       - "5432:5432"
-
-networks:
-  lms_network:
-    external: true
    
+volumes:
+  postgres_data:

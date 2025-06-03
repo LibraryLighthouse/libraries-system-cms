@@ -1,7 +1,7 @@
 ---
 version: '3.8'
 services:
-  time:
+  library:
     build: ./
     command: npm run develop
     restart: always
@@ -14,6 +14,11 @@ services:
       - ./.env
     networks:
       - lms_network
+
+    environment:
+      CLOUDINARY_NAME: dawhc3n9y
+      CLOUDINARY_KEY: 131395386716243
+      CLOUDINARY_SECRET: 42Ui4ow1Z894NwcTD58d8wuUMYM
 
 networks:
   lms_network:

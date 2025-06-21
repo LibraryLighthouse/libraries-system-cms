@@ -1,7 +1,17 @@
 # Changelog
-Version 1.0.0
-- add content type [book, book-categories, publisher]
-- testing add data and get graphql
-Version 1.0.1
-- chnage replace restfull to graphsql
-- add cloudinary for store image asset
+
+## [1.0.0] - 2025-06-12
+
+### Added
+
+### Changed
+
+- N/A
+
+### Fixed
+
+- N/A
+
+### Removed
+
+- N/A

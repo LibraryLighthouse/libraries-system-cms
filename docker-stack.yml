@@ -1,37 +1,43 @@
-version: '3.8'
-
+version: "3.8"
 services:
-  app:
-    image: your-app-image:latest
-    container_name: library_system_app
-    ports:
-      - "8080:8080"
+  cms-app:
+    image: reaksa7236/lms-cms-strapi:latest
+    container_name: library_system_cms
     environment:
-      - DATABASE_HOST=db
-      - DATABASE_PORT=5432
-      - DATABASE_USER=your_user
-      - DATABASE_PASSWORD=your_password
-      - DATABASE_NAME=library_system
-    depends_on:
-      - db
+        APP_KEYS: sDNNS6s4EfjGj8LYLoqI5g==,PA1LjhAJgRX4AJkeU2QpoA==,AydiVFkuov0NCn7Vugd2ZA==,N9wUtlUwCN49AAGrK0hM/Q==
+        API_TOKEN_SALT: OliDW+cMqaXIPrnyFKAZlQ==
+        ADMIN_JWT_SECRET: f0+FmH26L1h1bBznfR+Rfw==
+        TRANSFER_TOKEN_SALT: ZDv0fPcqcX4epFgYNOaXGA==
+        # Database
+        DATABASE_CLIENT: postgres
+        DATABASE_HOST: database_postgres.1.l6jhfx3mb4vtkzxdmg2dmc3mk
+        DATABASE_PORT: 5432
+        DATABASE_NAME: lmscms_db_master
+        DATABASE_USERNAME: lmscms_user_master
+        DATABASE_PASSWORD: tZxHFizMpxll5nA
+        # DATABASE_SSL: false
+        JWT_SECRET: 7WtT7iWVn7viliVOTklTw==
+        # Cloudninary
+        CLOUDINARY_NAME: dcaycyvhf
+        CLOUDINARY_KEY: 268164396216569
+        CLOUDINARY_SECRET: J5Kw678JbtWS_hvV_NkDC_LdQvI
 
-  db:
-    image: postgres:latest
-    container_name: library_system_db
-    environment:
-      POSTGRES_USER: your_user
-      POSTGRES_PASSWORD: your_password
-      POSTGRES_DB: library_system
-    volumes:
-      - db_data:/var/lib/postgresql/data
-
-  adminer:
-    image: adminer:latest
-    container_name: library_system_adminer
     ports:
-      - "8081:8080"
-    depends_on:
-      - db
+      - "3000:3000"
 
-volumes:
-  db_data:
+    networks:
+      - lms_network
+
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+networks:
+  lms_network:
+    external: true
+
+
